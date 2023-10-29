@@ -9,9 +9,12 @@ const Home = () => {
   // api call here
 
   const fetchBlogs = async () => {
-    const response = await axios.get("http://localhost:2000/blogs");
-
-    setBlog(response.data.blogs);
+    try {
+      const response = await axios.get("http://localhost:2000/blogs");
+      setBlog(response.data.blogs);
+    } catch (error) {
+      alert("Something went wrong! ");
+    }
   };
   useEffect(() => {
     fetchBlogs();
