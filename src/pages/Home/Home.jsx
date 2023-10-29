@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Navbar from "../../component/Navbar/Navbar";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [blogs, setBlog] = useState([]);
@@ -30,9 +31,7 @@ const Home = () => {
               <h4 className="card-title">{blog.title}</h4>
               <h5 className="card-title">{blog.subTitle}</h5>
               <p className="card-text">{blog.description}</p>
-              <a href="#" className="btn btn-primary">
-                Go somewhere
-              </a>
+              <Link to={`/singleBlog/${blog._id}`}>See More</Link>
             </div>
           );
         })}
